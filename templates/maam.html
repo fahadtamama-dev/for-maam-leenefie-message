@@ -84,6 +84,203 @@
         object-fit: contain;
     }
 }
+
+/* =========================
+   SUBTLE FLOATING PARTICLES
+   ========================= */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particles span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, 0.35);
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.25);
+    animation: floatParticle linear infinite;
+}
+
+/* Different positions and speeds */
+
+.particles span:nth-child(1) {
+    left: 8%;
+    top: 80%;
+    animation-duration: 18s;
+    animation-delay: -4s;
+}
+
+.particles span:nth-child(2) {
+    left: 18%;
+    top: 35%;
+    animation-duration: 22s;
+    animation-delay: -8s;
+}
+
+.particles span:nth-child(3) {
+    left: 27%;
+    top: 90%;
+    animation-duration: 20s;
+    animation-delay: -12s;
+}
+
+.particles span:nth-child(4) {
+    left: 39%;
+    top: 55%;
+    animation-duration: 25s;
+    animation-delay: -5s;
+}
+
+.particles span:nth-child(5) {
+    left: 48%;
+    top: 20%;
+    animation-duration: 19s;
+    animation-delay: -10s;
+}
+
+.particles span:nth-child(6) {
+    left: 57%;
+    top: 75%;
+    animation-duration: 23s;
+    animation-delay: -15s;
+}
+
+.particles span:nth-child(7) {
+    left: 67%;
+    top: 40%;
+    animation-duration: 21s;
+    animation-delay: -7s;
+}
+
+.particles span:nth-child(8) {
+    left: 74%;
+    top: 85%;
+    animation-duration: 26s;
+    animation-delay: -13s;
+}
+
+.particles span:nth-child(9) {
+    left: 82%;
+    top: 25%;
+    animation-duration: 20s;
+    animation-delay: -3s;
+}
+
+.particles span:nth-child(10) {
+    left: 90%;
+    top: 65%;
+    animation-duration: 24s;
+    animation-delay: -9s;
+}
+
+.particles span:nth-child(11) {
+    left: 14%;
+    top: 60%;
+    animation-duration: 27s;
+    animation-delay: -18s;
+}
+
+.particles span:nth-child(12) {
+    left: 94%;
+    top: 15%;
+    animation-duration: 22s;
+    animation-delay: -6s;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-120px) translateX(25px);
+        opacity: 0.35;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-240px) translateX(-20px);
+        opacity: 0;
+    }
+}
+
+/* BACK TO TOP */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9000;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(191, 219, 254, 0.9);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.85);
+    color: #2563eb;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.15),
+        0 4px 12px rgba(15, 23, 42, 0.08);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.25s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #eff6ff;
+    transform: translateY(-3px);
+}
+
+.back-to-top:active {
+    transform: translateY(0) scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+}
 }
 
         /* =========================
@@ -153,6 +350,137 @@
             left: 30%;
             animation-delay: 5s;
         }
+        /* =========================
+   SUBTLE PARTICLES
+========================= */
+
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particles span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #60a5fa;
+    opacity: 0.35;
+    animation: particleFloat 12s linear infinite;
+}
+
+/* Positions */
+
+.particles span:nth-child(1) {
+    left: 8%;
+    top: 90%;
+    animation-duration: 14s;
+}
+
+.particles span:nth-child(2) {
+    left: 18%;
+    top: 70%;
+    animation-duration: 18s;
+    animation-delay: -5s;
+}
+
+.particles span:nth-child(3) {
+    left: 27%;
+    top: 85%;
+    animation-duration: 16s;
+    animation-delay: -8s;
+}
+
+.particles span:nth-child(4) {
+    left: 38%;
+    top: 60%;
+    animation-duration: 20s;
+    animation-delay: -3s;
+}
+
+.particles span:nth-child(5) {
+    left: 48%;
+    top: 80%;
+    animation-duration: 15s;
+    animation-delay: -10s;
+}
+
+.particles span:nth-child(6) {
+    left: 58%;
+    top: 65%;
+    animation-duration: 19s;
+    animation-delay: -6s;
+}
+
+.particles span:nth-child(7) {
+    left: 68%;
+    top: 90%;
+    animation-duration: 17s;
+    animation-delay: -4s;
+}
+
+.particles span:nth-child(8) {
+    left: 76%;
+    top: 75%;
+    animation-duration: 21s;
+    animation-delay: -12s;
+}
+
+.particles span:nth-child(9) {
+    left: 84%;
+    top: 55%;
+    animation-duration: 16s;
+    animation-delay: -7s;
+}
+
+.particles span:nth-child(10) {
+    left: 92%;
+    top: 85%;
+    animation-duration: 19s;
+    animation-delay: -2s;
+}
+
+.particles span:nth-child(11) {
+    left: 13%;
+    top: 45%;
+    animation-duration: 22s;
+    animation-delay: -9s;
+}
+
+.particles span:nth-child(12) {
+    left: 95%;
+    top: 35%;
+    animation-duration: 18s;
+    animation-delay: -11s;
+}
+
+@keyframes particleFloat {
+
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-150px) translateX(25px);
+        opacity: 0.25;
+    }
+
+    85% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(-350px) translateX(-20px);
+        opacity: 0;
+    }
+
+}
 
         @keyframes floatBlob {
             from {
@@ -1253,244 +1581,199 @@
 
 }
 
-
-        /* =========================
-   LIGHTBOX — POLISHED
-========================= */
+ /* =========================
+    LIGHTBOX
+ ========================= */
 
 .lightbox {
     position: fixed;
     inset: 0;
-
-    z-index: 9998;
+    z-index: 10000;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 35px;
+    padding: 40px 80px;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(37, 99, 235, 0.14),
-            rgba(8, 15, 35, 0.92) 65%
-        );
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     opacity: 0;
     visibility: hidden;
 
-    transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
-/* Open state */
 
 .lightbox.active {
     opacity: 1;
     visibility: visible;
 }
 
-/* Image */
+.lightbox-content {
+    position: relative;
 
-.lightbox img {
-    display: block;
-
-    max-width: min(92vw, 1000px);
-    max-height: 85vh;
-
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 18px;
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.45),
-        0 0 50px rgba(96, 165, 250, 0.12);
-
-    transform: scale(0.88) translateY(15px);
-
-    transition:
-        transform 0.4s cubic-bezier(0.2, 0.75, 0.2, 1);
-}
-
-/* Image animation when opened */
-
-.lightbox.active img {
-    transform: scale(1) translateY(0);
-}
-
-/* Close button */
-
-.lightbox .close {
-    position: absolute;
-
-    top: 25px;
-    right: 30px;
-
-    width: 48px;
-    height: 48px;
+    max-width: 900px;
+    max-height: 90vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
+.lightbox-content img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 82vh;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content img {
+    transform: scale(1);
+}
+
+/* CLOSE */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.12);
-
-    border: 1px solid rgba(255, 255, 255, 0.22);
-
+    background: rgba(255, 255, 255, 0.15);
     color: white;
 
     font-size: 32px;
-    font-weight: 300;
-
     line-height: 1;
 
     cursor: pointer;
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
 
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        border-color 0.25s ease;
+    transition: 0.25s ease;
 }
 
-.lightbox .close:hover {
-    background: rgba(255, 255, 255, 0.22);
-
-    border-color: rgba(255, 255, 255, 0.4);
-
-    transform: rotate(90deg) scale(1.05);
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
 }
 
-/* Small hint */
+/* PREVIOUS / NEXT */
 
-.lightbox::after {
-    content: "Click outside or press Esc to close";
-
+.lightbox-nav {
     position: absolute;
 
-    bottom: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+
+    font-size: 42px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition: 0.25s ease;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.lightbox-prev {
+    left: 25px;
+}
+
+.lightbox-next {
+    right: 25px;
+}
+
+/* PHOTO COUNTER */
+
+.photo-counter {
+    position: absolute;
+
+    bottom: -45px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    color: rgba(255, 255, 255, 0.65);
+    color: white;
 
-    font-size: 12px;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 600;
 
-    pointer-events: none;
+    letter-spacing: 1px;
+
+    opacity: 0.8;
+
+    white-space: nowrap;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
     .lightbox {
-        padding: 18px;
+        padding: 25px 15px;
     }
 
-    .lightbox img {
-        max-width: 94vw;
-        max-height: 78vh;
-
-        border-radius: 14px;
+    .lightbox-content img {
+        max-width: 90vw;
+        max-height: 75vh;
     }
 
-    .lightbox .close {
+    .lightbox-nav {
+        width: 42px;
+        height: 42px;
+        font-size: 32px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-close {
         top: 15px;
         right: 15px;
 
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
 
         font-size: 28px;
     }
-
-    .lightbox::after {
-        bottom: 15px;
-
-        font-size: 10px;
-    }
 }
 
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 750px) {
-
-            nav {
-                gap: 16px;
-                padding: 11px 15px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero {
-                padding-top: 130px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            section {
-                padding: 75px 18px;
-            }
-
-            .message-card {
-                padding: 35px 25px;
-            }
-
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .photo-card {
-                border-radius: 15px;
-            }
-
-            .photo-overlay {
-                display: none;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            nav {
-                width: 94%;
-            }
-
-            nav a {
-                font-size: 11px;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-card {
-                aspect-ratio: 16 / 11;
-            }
-        }
 /* =========================
    STUDENT MESSAGES — POLISHED
 ========================= */
@@ -2192,15 +2475,34 @@
     </style>
 </head>
 
-
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    ↑
+</button>
 <body>
 
     <!-- BACKGROUND -->
-    <div class="background">
-        <div class="blob one"></div>
-        <div class="blob two"></div>
-        <div class="blob three"></div>
+<div class="background">
+
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+
+    <div class="particles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+
+</div>
 
 
     <!-- NAVIGATION -->
@@ -2258,7 +2560,7 @@
         </p>
 
         <a href="#message" class="scroll-button">
-            Read our message
+            Read our Message
             <span>↓</span>
         </a>
 
@@ -2268,131 +2570,112 @@
 
 
     <!-- MESSAGE -->
+
     <section id="message">
 
-        <div class="section-title">
+    <div class="section-title">
+        <h2>Messages From Loyalty Students</h2>
+    </div>
 
-            <small>With gratitude</small>
+    <div class="student-message-area">
 
-            <h2>A Message For You</h2>
+        {% if messages %}
+        <div class="messages-list">
 
-        </div>
+            <div class="messages-heading">
+                <h3>From Your Students, With Love</h3>
 
-
-        <div class="message-card">
-
-            <div class="quote">“</div>
-
-            <p>
-                Dear Ma'am Leenefie,
-                <br><br>
-
-                Thank you for being more than just a teacher.
-                Thank you for sharing your knowledge, your patience,
-                and your time with us.
-
-                <br><br>
-
-                Every lesson you teach becomes a part of the memories
-                we carry with us. Your effort may sometimes seem small
-                in the moment, but the impact of a teacher can stay
-                with a student for a lifetime.
-
-                <br><br>
-
-                We are grateful for everything you do.
-                Thank you for believing in us, guiding us,
-                and helping us become better versions of ourselves.
-
-            </p>
-
-            <div class="signature">
-                — With love and gratitude ♡
-            </div>
-
-             </div>
-
-        <!-- STUDENT MESSAGES -->
-        <div class="student-message-area">
-
-            <div class="message-form-card">
-
-                <h3>Leave a Message ♡</h3>
-
-                <p>Write something for Ma'am Leenefie.</p>
-
-                <form action="{{ url_for('add_message') }}" method="POST">
-
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        maxlength="50"
-                        required
-                    >
-
-                    <textarea
-                        name="message"
-                        placeholder="Write your message here..."
-                        maxlength="500"
-                        required
-                    ></textarea>
-
-                    <button type="submit">
-                        Send Message ♡
+                {% if session.get("admin") %}
+                    <a href="{{ url_for('admin_logout') }}" class="admin-button logged-in">
+                        Admin ✓
+                    </a>
+                {% else %}
+                    <button type="button" class="admin-button" onclick="openAdminLogin()">
+                        Admin
                     </button>
-
-                </form>
-
+                {% endif %}
             </div>
 
+            {% for item in messages %}
+            <div class="student-message">
 
-            {% if messages %}
+                {% if session.get("admin") %}
+                <form
+                    action="{{ url_for('delete_message', index=loop.index0) }}"
+                    method="POST"
+                    class="delete-message-form"
+                    onsubmit="return confirm('Are you sure you want to delete this message?');"
+                >
+                    <button type="submit">Delete</button>
+                </form>
+                {% endif %}
 
- <div class="messages-list">
+                <strong>{{ item.name }}</strong>
+                <p>{{ item.message }}</p>
 
-    <div class="messages-heading">
-        <h3>Messages From Loyalty Students</h3>
+            </div>
+            {% endfor %}
 
-        {% if session.get("admin") %}
-            <a href="{{ url_for('admin_logout') }}" class="admin-button logged-in">
-                Admin ✓
-            </a>
+        </div>
         {% else %}
-            <button type="button" class="admin-button" onclick="openAdminLogin()">
-                Admin
-            </button>
+
+        <div class="messages-list">
+            <div class="messages-heading">
+                <h3>Messages From Our Students</h3>
+
+                {% if session.get("admin") %}
+                    <a href="{{ url_for('admin_logout') }}" class="admin-button logged-in">
+                        Admin ✓
+                    </a>
+                {% else %}
+                    <button type="button" class="admin-button" onclick="openAdminLogin()">
+                        Admin
+                    </button>
+                {% endif %}
+            </div>
+
+            <p style="text-align:center; color:#64748b;">
+                No messages yet. Be the first to leave one! ♡
+            </p>
+        </div>
+
         {% endif %}
-    </div>
 
-    {% for item in messages %}
-    <div class="student-message">
 
-        {% if session.get("admin") %}
-        <form
-            action="{{ url_for('delete_message', index=loop.index0) }}"
-            method="POST"
-            class="delete-message-form"
-            onsubmit="return confirm('Are you sure you want to delete this message?');"
-        >
-            <button type="submit">Delete</button>
-        </form>
-        {% endif %}
+        <div class="message-form-card">
 
-        <strong>{{ item.name }}</strong>
-        <p>{{ item.message }}</p>
+            <h3>Leave a Message </h3>
 
-    </div>
-    {% endfor %}
+            <p>Write something for Ma'am Leenefie.</p>
 
-</div>
+            <form action="{{ url_for('add_message') }}" method="POST">
 
-            {% endif %}
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    maxlength="50"
+                    required
+                >
+
+                <textarea
+                    name="message"
+                    placeholder="Write your message here..."
+                    maxlength="500"
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
     <!-- PHOTO LIBRARY -->
 
@@ -2402,7 +2685,7 @@
 
         <div class="section-title">
 
-            <small>Our memories</small>
+            <small>Memories</small>
 
             <h2>Photo Library</h2>
 
@@ -2425,7 +2708,7 @@
     >
 
     <div class="photo-overlay">
-        <span>♡ A special memory</span>
+        <span> Maam Fieeeee </span>
     </div>
 
 </div>
@@ -2463,7 +2746,7 @@
         <h2>Thank You, Ma'am.</h2>
 
         <p>
-            For teaching, inspiring, and making a difference.
+            Thank you, Ma’am Leenefie, for everything you have done for us. Thank you for your patience, your kindness, and for always taking the time to teach and guide us. Your lessons go beyond what we learn in the classroom—they are lessons that we can carry with us as we continue to grow. We truly appreciate every effort, every reminder, every encouragement, and every moment you have shared with us. You have made a difference in our lives, and we are grateful to have had you as our teacher. We may move forward to different paths someday, but the memories and lessons you gave us will always remain with us. Thank you for believing in us, inspiring us, and helping us become better versions of ourselves. We are truly grateful for you, Ma’am.
         </p>
 
     </section>
@@ -2481,28 +2764,80 @@
     </footer>
 
 
+
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
 
-        <div class="close" onclick="closePhoto()">×</div>
+    <button class="lightbox-close" type="button" onclick="closePhoto()">×</button>
 
+    <button class="lightbox-nav lightbox-prev" type="button" onclick="previousPhoto()">‹</button>
+
+    <div class="lightbox-content">
         <img id="lightboxImage" src="" alt="Selected memory">
 
+        <div class="photo-counter">
+            <span id="photoCurrent">1</span> / <span id="photoTotal">1</span>
+        </div>
     </div>
+
+    <button class="lightbox-nav lightbox-next" type="button" onclick="nextPhoto()">›</button>
+
+</div>
 
 
     <!-- JAVASCRIPT -->
     <script>
 
-        function openPhoto(src) {
+let currentPhotoIndex = 0;
 
-            const lightbox = document.getElementById("lightbox");
-            const image = document.getElementById("lightboxImage");
+function getPhotos() {
+    return Array.from(document.querySelectorAll(".photo-card"))
+        .map(card => card.dataset.photo);
+}
 
-            image.src = src;
+function openPhoto(src) {
+    const photos = getPhotos();
 
-            lightbox.classList.add("active");
-        }
+    currentPhotoIndex = photos.indexOf(src);
+
+    if (currentPhotoIndex === -1) {
+        currentPhotoIndex = 0;
+    }
+
+    showPhoto();
+
+    document.getElementById("lightbox").classList.add("active");
+}
+
+function showPhoto() {
+    const photos = getPhotos();
+
+    if (photos.length === 0) return;
+
+    document.getElementById("lightboxImage").src = photos[currentPhotoIndex];
+    document.getElementById("photoCurrent").textContent = currentPhotoIndex + 1;
+    document.getElementById("photoTotal").textContent = photos.length;
+}
+
+function nextPhoto() {
+    const photos = getPhotos();
+
+    if (photos.length === 0) return;
+
+    currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+
+    showPhoto();
+}
+
+function previousPhoto() {
+    const photos = getPhotos();
+
+    if (photos.length === 0) return;
+
+    currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+
+    showPhoto();
+}
 
 
         function closePhoto() {
@@ -2544,6 +2879,23 @@ document.getElementById("adminModal").addEventListener("click", function(event) 
     }
 }); 
 
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+});
+
+backToTop.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
     </script>
 <div id="adminModal" class="admin-modal">
     <div class="admin-modal-card">
@@ -2571,6 +2923,23 @@ document.getElementById("adminModal").addEventListener("click", function(event) 
     </div>
 </div>
 
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    ↑
+</button>
 </body>
+<div class="particles" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 </html>
