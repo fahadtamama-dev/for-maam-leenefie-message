@@ -50,7 +50,10 @@ def add_message():
     message = request.form.get("message", "").strip()
 
     if name and message:
-        messages = load_messages()
+        messages = [
+    m for m in load_messages()
+    if not (m.get("name") == "Fhaad" and m.get("message") == "hi")
+]
 
         messages.append({
             "name": name,
