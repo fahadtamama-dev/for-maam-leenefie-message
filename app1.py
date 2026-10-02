@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import os
 import json
 
 app = Flask(__name__)
 
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "local-development-secret")
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MESSAGES_FILE = os.path.join(BASE_DIR, "messages.txt")
+
 
 def load_messages():
     if not os.path.exists(MESSAGES_FILE):
@@ -16,6 +19,7 @@ def load_messages():
             return json.load(file)
     except (json.JSONDecodeError, FileNotFoundError):
         return []
+
 
 def save_messages(messages):
     with open(MESSAGES_FILE, "w", encoding="utf-8") as file:
@@ -57,6 +61,42 @@ def add_message():
             "message": message
         })
 
+        save_messages(messages)
+
+    return redirect(url_for("home"))
+
+
+@app.route("/admin-login", methods=["POST"])
+def admin_login():
+    password = request.form.get("password", "")
+    admin_password = os.environ.get("ADMIN_PASSWORD")
+
+    if not admin_password:
+        return "ADMIN_PASSWORD is not set.", 500
+
+    if password == admin_password:
+        session["admin"] = True
+        return redirect(url_for("home"))
+
+    return "Wrong admin password.", 401
+
+
+@app.route("/admin-logout")
+def admin_logout():
+    session.pop("admin", None)
+    return redirect(url_for("home"))
+
+
+@app.route("/delete-message/<int:index>", methods=["POST"])
+def delete_message(index):
+
+    if not session.get("admin"):
+        return "Unauthorized", 403
+
+    messages = load_messages()
+
+    if 0 <= index < len(messages):
+        messages.pop(index)
         save_messages(messages)
 
     return redirect(url_for("home"))
