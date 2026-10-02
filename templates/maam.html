@@ -1210,81 +1210,7 @@
 
 /* Memory overlay */
 
-.photo-overlay {
-    position: absolute;
-    z-index: 2;
 
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 12px 15px;
-
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.18);
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    color: white;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    opacity: 0;
-
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
-}
-
-.photo-overlay span::after {
-    content: "  ↗";
-    font-size: 15px;
-}
-
-.photo-card:hover .photo-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Little corner decoration */
-
-.photo-card::before {
-    content: "✦";
-
-    position: absolute;
-    z-index: 3;
-
-    top: 14px;
-    right: 16px;
-
-    color: rgba(255, 255, 255, 0.85);
-
-    font-size: 17px;
-
-    opacity: 0;
-
-    transform: scale(0.7) rotate(-20deg);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-}
-
-.photo-card:hover::before {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-}
 
 /* =========================
    EMPTY LIBRARY
@@ -2708,7 +2634,6 @@
     >
 
     <div class="photo-overlay">
-        <span> Maam Fieeeee </span>
     </div>
 
 </div>
