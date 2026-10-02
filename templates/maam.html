@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Ma'am Leenefie ♡</title>
+
+    <style>
+
+        /* =========================
+           BASIC SETUP
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #302b35;
+            background: #eaf4ff;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           FLOATING BACKGROUND
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.25;
+            animation: floatBlob 12s ease-in-out infinite alternate;
+        }
+
+        .blob.one {
+            width: 300px;
+            height: 300px;
+            background: #60a5fa;
+            top: -100px;
+            left: -80px;
+        }
+
+        .blob.two {
+            width: 350px;
+            height: 350px;
+            background: #93c5fd;
+            right: -120px;
+            top: 30%;
+            animation-delay: 3s;
+        }
+
+        .blob.three {
+            width: 250px;
+            height: 250px;
+            background: #bfdbfe;
+            bottom: -80px;
+            left: 30%;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatBlob {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(40px, -30px) scale(1.15);
+            }
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(900px, 90%);
+            padding: 12px 20px;
+
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.08);
+
+            z-index: 100;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 120px 20px 80px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+
+            animation: heroAppear 1.2s ease forwards;
+        }
+
+        @keyframes heroAppear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .small-title {
+            color: #2563eb;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 1;
+            font-weight: 500;
+            color: #172554;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+            display: inline-block;
+            animation: gentleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #475569;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .scroll-button {
+            display: inline-block;
+            margin-top: 40px;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            background: #2563eb;
+            color: white;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.35);
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: #2563eb;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(36px, 5vw, 55px);
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message-card {
+            max-width: 800px;
+            margin: auto;
+
+            padding: 55px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border: 1px solid rgba(255, 255, 255, 0.9);
+
+            border-radius: 30px;
+
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+
+            text-align: center;
+
+            position: relative;
+
+            animation: cardFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .message-card .quote {
+            font-family: Georgia, serif;
+            font-size: 70px;
+            color: #60a5fa;
+            line-height: 0.5;
+            margin-bottom: 25px;
+        }
+
+        .message-card p {
+            color: #334155;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: #1d4ed8;
+        }
+
+
+        /* =========================
+           PHOTO LIBRARY
+        ========================= */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background: white;
+
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.08);
+
+            aspect-ratio: 4 / 5;
+
+            cursor: pointer;
+
+            opacity: 0;
+            transform: translateY(30px);
+
+            animation: photoAppear 0.8s ease forwards;
+        }
+
+        .photo-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .photo-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .photo-card:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+        .photo-card:nth-child(5) {
+            animation-delay: 0.6s;
+        }
+
+        .photo-card:nth-child(6) {
+            animation-delay: 0.75s;
+        }
+
+        @keyframes photoAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform 0.7s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 25px;
+
+            background: linear-gradient(
+                transparent 45%,
+                rgba(30, 20, 25, 0.65)
+            );
+
+            color: white;
+
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           EMPTY LIBRARY
+        ========================= */
+
+        .empty-library {
+            text-align: center;
+            padding: 60px 20px;
+
+            border: 2px dashed #bfdbfe;
+            border-radius: 25px;
+
+            color: #64748b;
+        }
+
+        .empty-library .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .empty-library h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           CLOSING
+        ========================= */
+
+        .closing {
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 130px;
+        }
+
+        .heart {
+            font-size: 45px;
+
+            display: inline-block;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.2);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.15);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        .closing h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 6vw, 60px);
+            font-weight: 500;
+            margin: 20px 0;
+        }
+
+        .closing p {
+            color: #475569;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+
+            border-top: 1px solid #dbeafe;
+
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(15, 23, 42, 0.9);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 0.3s;
+
+            z-index: 999;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+
+            border-radius: 15px;
+
+            transform: scale(0.8);
+
+            transition: 0.3s;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .close {
+            position: absolute;
+
+            top: 25px;
+            right: 30px;
+
+            font-size: 35px;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                gap: 16px;
+                padding: 11px 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .message-card {
+                padding: 35px 25px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .photo-card {
+                border-radius: 15px;
+            }
+
+            .photo-overlay {
+                display: none;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            nav {
+                width: 94%;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card {
+                aspect-ratio: 16 / 11;
+            }
+        }
+/* =========================
+   STUDENT MESSAGES
+========================= */
+
+.student-message-area {
+    max-width: 800px;
+    margin: 55px auto 0;
+}
+
+.message-form-card {
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    box-shadow: 0 15px 45px rgba(37, 99, 235, 0.08);
+    text-align: center;
+}
+
+.message-form-card h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.message-form-card > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.message-form-card input,
+.message-form-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+    margin-bottom: 15px;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 15px;
+
+    background: #f8fbff;
+    color: #1e3a8a;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+.message-form-card textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.message-form-card input:focus,
+.message-form-card textarea:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
+}
+
+.message-form-card button {
+    border: none;
+    border-radius: 50px;
+
+    padding: 14px 25px;
+
+    background: #2563eb;
+    color: white;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.message-form-card button:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+}
+
+.messages-list {
+    margin-top: 45px;
+}
+
+.messages-list > h3 {
+    font-family: Georgia, serif;
+    color: #1e3a8a;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.student-message {
+    padding: 22px 25px;
+    margin-bottom: 15px;
+
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.06);
+}
+
+.student-message strong {
+    display: block;
+    color: #1e3a8a;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.student-message p {
+    color: #475569;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+
+/* MOBILE MESSAGE FORM */
+
+@media (max-width: 750px) {
+
+    .message-form-card {
+        padding: 28px 20px;
+    }
+
+    .message-form-card h3 {
+        font-size: 26px;
+    }
+
+}
+    </style>
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+        <div class="blob three"></div>
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#message">Message</a>
+        <a href="#memories">Memories</a>
+        <a href="#thanks">Thank You</a>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A little something from your students
+            </div>
+
+            <h1>
+                Happy Teachers' Day,
+                <br>
+                <span>Ma'am Leenefie</span>
+            </h1>
+
+            <p>
+                For the patience you give, the lessons you teach,
+                and the moments that make the classroom more meaningful.
+            </p>
+
+            <a href="#message" class="scroll-button">
+                Read our message ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MESSAGE -->
+    <section id="message">
+
+        <div class="section-title">
+
+            <small>With gratitude</small>
+
+            <h2>A Message For You</h2>
+
+        </div>
+
+
+        <div class="message-card">
+
+            <div class="quote">“</div>
+
+            <p>
+                Dear Ma'am Leenefie,
+                <br><br>
+
+                Thank you for being more than just a teacher.
+                Thank you for sharing your knowledge, your patience,
+                and your time with us.
+
+                <br><br>
+
+                Every lesson you teach becomes a part of the memories
+                we carry with us. Your effort may sometimes seem small
+                in the moment, but the impact of a teacher can stay
+                with a student for a lifetime.
+
+                <br><br>
+
+                We are grateful for everything you do.
+                Thank you for believing in us, guiding us,
+                and helping us become better versions of ourselves.
+
+            </p>
+
+            <div class="signature">
+                — With love and gratitude ♡
+            </div>
+
+             </div>
+
+        <!-- STUDENT MESSAGES -->
+        <div class="student-message-area">
+
+            <div class="message-form-card">
+
+                <h3>Leave a Message ♡</h3>
+
+                <p>Write something for Ma'am Leenefie.</p>
+
+                <form action="{{ url_for('add_message') }}" method="POST">
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        maxlength="50"
+                        required
+                    >
+
+                    <textarea
+                        name="message"
+                        placeholder="Write your message here..."
+                        maxlength="500"
+                        required
+                    ></textarea>
+
+                    <button type="submit">
+                        Send Message ♡
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if messages %}
+
+            <div class="messages-list">
+
+                <h3>Messages From Our Students</h3>
+
+                {% for item in messages %}
+
+                <div class="student-message">
+
+                    <strong>{{ item.name }}</strong>
+
+                    <p>{{ item.message }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTO LIBRARY -->
+
+
+    <!-- PHOTO LIBRARY -->
+    <section id="memories">
+
+        <div class="section-title">
+
+            <small>Our memories</small>
+
+            <h2>Photo Library</h2>
+
+        </div>
+
+
+        {% if photos %}
+
+        <div class="gallery">
+
+            {% for photo in photos %}
+
+<div class="photo-card"
+     data-photo="{{ url_for('static', filename='photos/' + photo) }}"
+     onclick="openPhoto(this.dataset.photo)">
+
+    <img
+        src="{{ url_for('static', filename='photos/' + photo) }}"
+        alt="Memory"
+    >
+
+    <div class="photo-overlay">
+        <span>♡ A special memory</span>
+    </div>
+
+</div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-library">
+
+            <div class="icon">📷</div>
+
+            <h3>Our memories will live here.</h3>
+
+            <p>
+                Add photos to the
+                <strong>static/photos</strong>
+                folder and they will automatically appear here.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- CLOSING -->
+    <section class="closing" id="thanks">
+
+        <div class="heart">♡</div>
+
+        <h2>Thank You, Ma'am.</h2>
+
+        <p>
+            For teaching, inspiring, and making a difference.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        Made with love and gratitude ♡
+
+        <br>
+
+        Happy Teachers' Day, Ma'am Leenefie.
+
+    </footer>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+
+        <div class="close" onclick="closePhoto()">×</div>
+
+        <img id="lightboxImage" src="" alt="Selected memory">
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function openPhoto(src) {
+
+            const lightbox = document.getElementById("lightbox");
+            const image = document.getElementById("lightboxImage");
+
+            image.src = src;
+
+            lightbox.classList.add("active");
+        }
+
+
+        function closePhoto() {
+
+            const lightbox = document.getElementById("lightbox");
+
+            lightbox.classList.remove("active");
+        }
+
+
+        document.getElementById("lightbox").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                closePhoto();
+            }
+
+        });
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closePhoto();
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
