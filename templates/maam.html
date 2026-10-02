@@ -56,6 +56,34 @@
         padding: 12px 22px;
         font-size: 14px;
     }
+
+    @media (max-width: 550px) {
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .photo-card {
+        width: 100%;
+        max-width: 330px;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: auto;
+        margin: 0 auto;
+    }
+
+    .photo-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;
+    }
+}
 }
 
         /* =========================
