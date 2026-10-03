@@ -1,29 +1,43 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import os
-import json
+import psycopg
 
 app = Flask(__name__)
 
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "local-development-secret")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MESSAGES_FILE = os.path.join(BASE_DIR, "messages.txt")
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+
+def get_db():
+    return psycopg.connect(DATABASE_URL)
+
+
+def init_db():
+    with get_db() as conn:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                message TEXT NOT NULL
+            )
+        """)
 
 
 def load_messages():
-    if not os.path.exists(MESSAGES_FILE):
-        return []
+    with get_db() as conn:
+        rows = conn.execute(
+            "SELECT id, name, message FROM messages ORDER BY id"
+        ).fetchall()
 
-    try:
-        with open(MESSAGES_FILE, "r", encoding="utf-8") as file:
-            return json.load(file)
-    except (json.JSONDecodeError, FileNotFoundError):
-        return []
+    return [
+        {"id": row[0], "name": row[1], "message": row[2]}
+        for row in rows
+    ]
 
 
-def save_messages(messages):
-    with open(MESSAGES_FILE, "w", encoding="utf-8") as file:
-        json.dump(messages, file, ensure_ascii=False, indent=4)
+
+
 
 
 @app.route("/")
@@ -54,14 +68,11 @@ def add_message():
     message = request.form.get("message", "").strip()
 
     if name and message:
-        messages = load_messages()
-
-        messages.append({
-            "name": name,
-            "message": message
-        })
-
-        save_messages(messages)
+        with get_db() as conn:
+            conn.execute(
+                "INSERT INTO messages (name, message) VALUES (%s, %s)",
+                (name, message)
+            )
 
     return redirect(url_for("home"))
 
@@ -87,19 +98,23 @@ def admin_logout():
     return redirect(url_for("home"))
 
 
-@app.route("/delete-message/<int:index>", methods=["POST"])
-def delete_message(index):
+@app.route("/delete-message/<int:message_id>", methods=["POST"])
+def delete_message(message_id):
 
     if not session.get("admin"):
         return "Unauthorized", 403
 
-    messages = load_messages()
-
-    if 0 <= index < len(messages):
-        messages.pop(index)
-        save_messages(messages)
+    with get_db() as conn:
+        conn.execute(
+            "DELETE FROM messages WHERE id = %s",
+            (message_id,)
+        )
 
     return redirect(url_for("home"))
+
+
+if DATABASE_URL:
+    init_db()
 
 
 if __name__ == "__main__":
