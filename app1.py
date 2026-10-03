@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import os
+import random
 import psycopg
 
 app = Flask(__name__)
@@ -27,13 +28,17 @@ def init_db():
 def load_messages():
     with get_db() as conn:
         rows = conn.execute(
-            "SELECT id, name, message FROM messages ORDER BY id"
+            "SELECT id, name, message FROM messages"
         ).fetchall()
 
-    return [
+    messages = [
         {"id": row[0], "name": row[1], "message": row[2]}
         for row in rows
     ]
+
+    random.shuffle(messages)
+
+    return messages
 
 
 
